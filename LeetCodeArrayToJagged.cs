@@ -8,24 +8,23 @@ class Solution
 {
     static void Main (string[] args)
     {
+        System.Console.WriteLine ("How to use: Pass in array of the following format (NO SPACE):  [[1,2,3],[2,3,3],[3]], to turn it into c# jagges array.");
         string input = args[0];
-
+        System.Console.WriteLine ("My input: " + input);
         var arrays = new List<string> ();
-        var stack = new Stack<int> ();
-        for (int i = 0; i != input.Length; ++i)
+        var startIdx = -1;
+
+        for (int i = 0; i != input.Length - 1; ++i)
         {
             if (input[i] == '[')
             {
-                stack.Push (i);
+                startIdx = i + 1;
             }
             else if (input[i] == ']')
             {
-                var start = stack.Pop () + 1;
-                arrays.Add (input.Substring (start, i - start));
+                arrays.Add (input.Substring (startIdx, i - startIdx));
             }
         }
-
-        arrays.RemoveAt (arrays.Count - 1);
 
         var variableName = "gen";
         System.Console.WriteLine ($"var {variableName} = new int[{arrays.Count}][];");
