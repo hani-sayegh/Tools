@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/hani-sayegh/Tools#readme",
   "dependencies": {
-    "clipboardy": "^2.3.0"
+    "clipboardy": "^3.0.0"
   }
 }
